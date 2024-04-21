@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+            crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Ubuntu&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+        <!-- Font Awesome JavaScript-->
+        <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+        
+        <title>Tactile E-commerce</title>
+
+        <link rel="shortcut icon" href="/Tactile_Glove_Experiment_QoE/favicon1.ico" type="Images/x-icon">
+          
+            
+        <style>
+            body {
+                background-color: #FFFAE7;
+                font-family: "Montserrat";
+            }
+            #carouselMain {
+                margin-top:60px;
+                margin-bottom:90px;
+            }
+            .products {
+                margin-top:60px;  
+            }
+            /*
+             EasyZoom core styles
+               
+            .easyzoom {
+	            position: relative;
+	            display: inline-block;
+	            *display: inline;
+	            *zoom: 1;
+            }
+            */      
+            .easyzoom-notice {
+	            position: absolute;
+	            top: 50%;
+	            left: 50%;
+	            z-index: 150;
+	            width: 10em;
+	            margin: -1em 0 0 -5em;
+	            line-height: 2em;
+	            text-align: center;
+	            background: #FFF;
+	            box-shadow: 0 0 10px #888;
+            }
+            .easyzoom-flyout {
+	            position:absolute;
+	            z-index: 100;
+	            overflow: hidden;
+	            background: #FFF;
+            }    
+            /*
+             EasyZoom layout variations
+            */
+            .easyzoom--overlay .easyzoom-flyout {
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+            }
+            .easyzoom--adjacent .easyzoom-flyout {
+	            top: 0;
+	            left: 100%;
+	            width: 100%;
+	            height: 100%;
+	            margin-left: 20px;                
+            }
+            #cursorActive{
+		        position: absolute;
+                pointer-events: none;
+                z-index: 5;
+	        } 
+            #passive_touch{
+                position: absolute;
+                z-index: 5;
+            }         
+	        * {
+                cursor: grab;
+	        } 
+            .hide{
+                display: none;
+            }
+            .centralization{
+                margin: auto;
+            }
+            .table_space_zero{
+                padding: 0px;
+            }
+            .img-col{
+                float: left;
+            }
+            .img-box{
+                width: 460px;
+                height: 450px;
+            }
+            .img-row-all{
+                width: 910px;
+                height: 420px;
+            }
+            .img-row-all_1{
+                width: 450px;
+                height: 470px;
+            }
+            .img-col-1{
+                width: 213px;
+                height: 420px;
+            }
+            .img-row-1-col-1{
+                width: 213px;
+                height: 136px;
+            }
+            .img-col-1-row-1-col-1{
+                width: 213px;
+                height: 136px;
+            }
+            .img-row-2-col-1{
+                width: 213px;
+                height: 120px;
+            }
+            .img-col-1-row-2-col-1{
+                width: 213px;
+                height: 120px;
+            }
+            .img-row-3-col-1{
+                width: 213px;
+                height: 91px;
+            }
+            .img-col-1-row-3-col-1{
+                width: 213px;
+                height: 91px;
+            }
+            .img-row-4-col-1{
+                width: 213px;
+                height: 73px;
+            }
+            .img-col-1-row-4-col-1{
+                width: 213px;
+                height: 73px;
+            }
+            .img-col-2{
+                width: 237px;
+                height: 420px;
+            }
+            .img-col-3{
+                width: 450px;
+                height: 420px;
+            }
+            .row-1-passive{
+                width: 450px;
+                height: 420px;
+            }
+            .col-1-passive{
+                width: 450px;
+                height: 420px;
+            }
+            .row-2-passive{
+                width: 900px;
+                height: 420px;
+            }
+            .col-2-passive{
+                width: 450px;
+                height: 420px;
+            }
+            .col-3-passive{
+                width: 450px;
+                height: 420px;
+            }
+            .row-3-passive{
+                width: 900px;
+                height: 420px;
+            }
+            .col-4-passive{
+                width: 450px;
+                height: 420px;
+            }
+            .col-5-passive{
+                width: 450px;
+                height: 420px;
+            }
+        </style>
+    
+    </head>
+
+    <body style="min-width: 372px">
+    <!--    
+        <% if(val_ON_OFF == "1"){ %> 
+            <h1>X: <%= S_val_X %></h1>
+            <br>
+            <h1>Y: <%= S_val_Y %></h1>        
+        <% } %>
+    -->    
+    
+        <% if(val_ON_OFF == "1"){ %>  
+            <div id="cursorActive" class="hide">
+                <img src="/Tactile_Glove_Experiment_QoE/tactile_cursor.png" width="150" height="69" />
+            </div>
+        <% } %>
+
+        <% if(val_ON_OFF == "0"){ %>
+            <div id="passive_touch" class="">
+                <img src="/Tactile_Glove_Experiment_QoE/Passive_Touch.jpg" width="120" height="35" />
+            </div>
+        <% } %>
+
+        <div class="d-flex flex-column wrapper">
+            <nav class="navbar navbar-expand-lg bg-dark border-bottom shadow-sm mb-2">
+                
+                <a class="m-auto btn btn-primary" data-bs-toggle="offcanvas" href="#sidebar" role="button" aria-controls="sidebar">
+                    Categories
+                  </a>
+
+                <div class="container">
+                    
+                    <a class="navbar-brand text-primary" href="/views/indeex.ejs">
+                        <b>Tactile E-commerce</b>
+                    </a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target=".navbar-collapse"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="/sobre.html">About</a>
+                            </li>
+                        </ul>
+                        <div class="align-self-end">
+                            <ul class="navbar-nav text-primary">
+                                <form class="d-flex" role="search">
+                                    <input
+                                        class="form-control me-3"
+                                        type="search"
+                                        placeholder="Type here"
+                                        aria-label="Pesquisar"
+                                    >
+                                    <button class="btn btn-info" type="submit">Search</button>
+                                </form>
+                                <li class="nav-item">
+                                    <a href="/cadastro.html" class="nav-link text-light">Registry</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/login.html" class="nav-link text-light">Sign in</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/carrinho.html" class="nav-link text-primary">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="2em"
+                                            height="2em"
+                                            fill="currentColor"
+                                            class="bi bi-cart"
+                                            viewBox="0 0 16 16"
+                                        >
+                                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+                <div class="offcanvas-header text-center">
+                  <h5 class="offcanvas-title" id="sidebarLabel">Buy by category</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <div>
+                    Choose here the product category.
+                  </div>
+                  <div class="dropdown mt-3">
+                    <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                      Clothing & Accessories
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="/camisas.html">Camisas</a></li>
+                      <li><a class="dropdown-item" href="/casacos.html">Casacos e Suéters</a></li>
+                      <li><a class="dropdown-item" href="/crochê.html">Crochê</a></li>
+                      <li><a class="dropdown-item" href="/jeans.html">Jeans</a></li>
+                      <li><a class="dropdown-item" href="/sandalias.html">Sandálias, Saltos e Tênis</a></li>
+                    </ul>
+                  </div>
+                  
+                  <div class="dropdown mt-3">
+                    <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                      Home appliances
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Geladeira</a></li>
+                      <li><a class="dropdown-item" href="#">TVs</a></li>
+                      <li><a class="dropdown-item" href="#">Produtos eletrônicos</a></li>
+                      <li><a class="dropdown-item" href="#">Câmeras</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="dropdown mt-3">
+                    <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                      Books
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Ação</a></li>
+                      <li><a class="dropdown-item" href="#">Aventura</a></li>
+                      <li><a class="dropdown-item" href="#">Ficção científica</a></li>
+                      <li><a class="dropdown-item" href="#">Terror</a></li>
+                      <li><a class="dropdown-item" href="#">Sandálias, Saltos e Tênis</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+            </div>
+
+            <% if(val_ON_OFF != "0" && val_ON_OFF != "1"){ %>
+            <div class="container">
+                <div id="carouselMain" class="carousel slide carousel-dark" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button
+                            type="button"
+                            data-bs-target="#carouselMain"
+                            data-bs-slide-to="0"
+                            class="active"
+                        ></button>
+                        <button
+                            type="button"
+                            data-bs-target="#carouselMain"
+                            data-bs-slide-to="1"
+                        ></button>
+                        <button
+                            type="button"
+                            data-bs-target="#carouselMain"
+                            data-bs-slide-to="2"
+                        ></button>
+                        <button
+                            type="button"
+                            data-bs-target="#carouselMain"
+                            data-bs-slide-to="3"
+                        ></button>
+                        <button
+                            type="button"
+                            data-bs-target="#carouselMain"
+                            data-bs-slide-to="4"
+                        ></button>
+                    </div>
+                    
+                    
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="5000">
+                            <img src="/Tactile_Glove_Experiment_QoE/ufrn.jpg" style="height: 400px; width: 700px;" class="d-block w-100 img-fluid" alt="Restaurando imagem">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000">
+                            <img src="/Tactile_Glove_Experiment_QoE/imd.jpg" style="height: 400px; width: 700px;" class="d-block w-100 img-fluid" alt="Restaurando imagem">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000">
+                            <img src="/Tactile_Glove_Experiment_QoE/dca.jpg" style="height: 400px; width: 700px;" class="d-block w-100 img-fluid" alt="Restaurando imagem">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="5000">
+                          <img src="/Tactile_Glove_Experiment_QoE/ufsc.jpg" style="height: 400px; width: 700px;" class="d-block w-100 img-fluid" alt="Restaurando imagem">
+                          <div class="carousel-caption d-none d-md-block">
+                          </div>
+                      </div>
+                      <div class="carousel-item" data-bs-interval="5000">
+                        <img src="/Tactile_Glove_Experiment_QoE/King's_College_London_logo.jpg" style="height: 400px; width: 700px;" class="d-block w-100 img-fluid" alt="Restaurando imagem">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#carouselMain"
+                        data-bs-slide="prev"
+                    >
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#carouselMain"
+                        data-bs-slide="next"
+                    >
+                        <span class="carousel-control-next-icon"></span>
+                        <span class="visually-hidden">Próximo</span>
+                    </button>
+                </div>
+                <hr class="mt-2"/>
+            </div>
+            <% } %>
+            
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <main class="flex-fill">
+                <div id="initializationPosition" class="container text-center">
+                    <h3>Running shoes</h3> 
+
+                    <br>
+                    <br> 
+
+                    <% if(val_ON_OFF == "0"){ %>
+                        <div class="img-row-all_1" id="left_image">
+                            <div class="row-1-passive"> 
+                                <div class="col-1-passive img-col">
+                                    <img src="/Tactile_Glove_Experiment_QoE/tenis.jpg" alt="" width="450" height="420" usemap="#workmap"/> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hide" id="center_image">
+                            <div class="row-2-passive">  
+                                <div class="col-2-passive img-col">
+                                    <img src="/Tactile_Glove_Experiment_QoE/tenis.jpg" alt="" width="450" height="420" usemap="#workmap"/> 
+                                </div>
+                                <div class="col-3-passive img-col">
+                                    <img src="/Tactile_Glove_Experiment_QoE/Zoom_tenis/tenis_top.png" alt="" width="450" height="420"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hide" id="right_image">
+                            <div class="row-3-passive">  
+                                <div class="col-4-passive img-col">
+                                    <img src="/Tactile_Glove_Experiment_QoE/tenis.jpg" alt="" width="450" height="420" usemap="#workmap"/> 
+                                </div>
+                                <div class="col-5-passive img-col">
+                                    <img src="/Tactile_Glove_Experiment_QoE/Zoom_tenis/tenis_bottom.png" alt="" width="450" height="420"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    <% } %>
+
+                    <% if(val_ON_OFF == "1"){ %>
+                           
+                            <div class="img-box">
+                                <div class="img-row-all" id="left_image">
+                                    <div class="img-col-1 img-col">       
+                                        <div class="img-row-1-col-1">
+                                            <div class="img-col-1-row-1-col-1 img-col" id="img_1_id">
+                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/1.png" alt=""/> 
+                                            </div>       
+                                        </div>
+
+                                        <div class="img-row-2-col-1">
+                                            <div class="img-col-1-row-2-col-1 img-col" id="img_2_id">
+                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/2.png" alt=""/> 
+                                            </div>       
+                                        </div>
+                                        
+                                        <div class="img-row-3-col-1">
+                                            <div class="img-col-1-row-3-col-1 img-col" id="img_3_id">
+                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/3.png" alt=""/> 
+                                            </div>       
+                                        </div>
+
+                                        <div class="img-row-4-col-1">
+                                            <div class="img-col-1-row-4-col-1 img-col" id="img_4_id">
+                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/4.png" alt=""/> 
+                                            </div>       
+                                        </div>
+                                    </div>
+
+                                    <div class="img-col-2 img-col" id="img_5_id">
+                                        <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/5.png" alt=""/> 
+                                    </div>
+                                </div>    
+                                        
+
+                                <div class="hide" id="center_image">
+                                    <div class="img-col-1 img-col">       
+                                        <div class="img-row-1-col-1">
+                                            <div class="img-col-1-row-1-col-1 img-col" id="img_1_id">
+                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/1.png" alt=""/> 
+                                            </div>       
+                                        </div>
+
+                                        <div class="img-row-2-col-1">
+                                            <div class="img-col-1-row-2-col-1 img-col" id="img_2_id">
+                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/2.png" alt=""/> 
+                                            </div>       
+                                        </div>
+                                        
+                                        <div class="img-row-3-col-1">
+                                            <div class="img-col-1-row-3-col-1 img-col" id="img_3_id">
+                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/3.png" alt=""/> 
+                                            </div>       
+                                        </div>
+
+                                        <div class="img-row-4-col-1">
+                                            <div class="img-col-1-row-4-col-1 img-col" id="img_4_id">
+                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/4.png" alt=""/> 
+                                            </div>       
+                                        </div>
+                                    </div>
+
+                                    <div class="img-col-2 img-col" id="img_5_id">
+                                        <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/5.png" alt=""/> 
+                                    </div>
+
+                                    <div class="img-col-3 img-col">
+                                        <img src="/Tactile_Glove_Experiment_QoE/Zoom_tenis/tenis_top.png" alt="" width="450" height="420"/>
+                                    </div>
+                                </div>
+
+                                
+                                <div class="hide" id="right_image">
+                                    <div class="img-col-1 img-col">       
+                                        <div class="img-row-1-col-1">
+                                            <div class="img-col-1-row-1-col-1 img-col" id="img_1_id">
+                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/1.png" alt=""/> 
+                                            </div>       
+                                        </div>
+
+                                        <div class="img-row-2-col-1">
+                                            <div class="img-col-1-row-2-col-1 img-col" id="img_2_id">
+                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/2.png" alt=""/> 
+                                            </div>       
+                                        </div>
+                                        
+                                        <div class="img-row-3-col-1">
+                                            <div class="img-col-1-row-3-col-1 img-col" id="img_3_id">
+                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/3.png" alt=""/> 
+                                            </div>       
+                                        </div>
+
+                                        <div class="img-row-4-col-1">
+                                            <div class="img-col-1-row-4-col-1 img-col" id="img_4_id">
+                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/4.png" alt=""/> 
+                                            </div>       
+                                        </div>
+                                    </div>
+
+                                    <div class="img-col-2 img-col" id="img_5_id">
+                                        <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_tenis/5.png" alt=""/> 
+                                    </div>
+
+                                    <div class="img-col-3 img-col">
+                                        <img src="/Tactile_Glove_Experiment_QoE/Zoom_tenis/tenis_bottom.png" alt="" width="450" height="420"/>
+                                    </div>
+                                </div>
+                            </div>
+                                    
+                    <% } %>      
+            
+                    <map name="workmap">
+                        <area shape="rect" coords="0,0,193,137" alt="topZoom_SM_1" href="" onmouseover="imageWithTopZoom(), hoverFunctionPassive_SM()">
+                        <area shape="rect" coords="1,133,207,261" alt="topZoom_CR_1" href="" onmouseover="imageWithTopZoom(), hoverFunctionPassive_CR()">
+                        <area shape="rect" coords="1,257,223,346" alt="bottomZoom_FR_1" href="" onmouseover="imageWithBottomZoom(), hoverFunctionPassive_FR()">
+                        <area shape="rect" coords="2,340,228,417" alt="bottomZoom_SM_1" href="" onmouseover="imageWithBottomZoom(), hoverFunctionPassive_SM()">
+                        <area shape="rect" coords="218,0,449,419" alt="absence_of_sensation_withoutZoom_1" href="" onmouseover="imageWithoutZoom(), hoverFunctionPassive_absence_of_sensation()">
+                    </map>
+
+                    <br>
+                    <br>
+
+                    Active Touch: 
+                    <table cellspacing="10" class="centralization">
+                        <tbody>
+                          <tr>
+                            <td>
+                                <form action="/on" method="post">
+                                    <input type="hidden" size="1" name="btn_on_id" placeholder="">
+                                    <button class="btn btn-outline-primary" id="btn_on">On</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/off" method="post">
+                                    <input type="hidden" size="1" name="btn_off_id" placeholder="">
+                                    <button class="btn btn-outline-primary" id="btn_off" onmouseover="clickButtonOff()" required name="insert_off">Off</button>
+                                </form>
+                            </td>
+                          </tr>
+                        </tbody>
+                    </table>
+
+                    <br>
+                    
+                    <!--Tactile ID:-->
+                    <table cellspacing="10" class="centralization">
+                        <tbody>
+                          <tr>
+                            <td>
+                                <form action="/zero" method="post">
+                                    <input type="hidden" size="1" required name="id_zero" value="" placeholder="">
+                                    <button class="btn btn-outline-primary" style="display:none" type="submit" required name="insert_0">0</button>
+                                </form> 
+                            </td>
+                            <td>
+                                <form action="/one" method="post">
+                                    <input type="hidden" size="1" required name="id_one" value="" placeholder="">
+                                    <button class="btn btn-outline-primary" style="display:none" type="submit" required name="insert_1">1</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/two" method="post">
+                                    <input type="hidden" size="1" required name="id_two" value="" placeholder="">
+                                    <button class="btn btn-outline-primary" style="display:none" type="submit" required name="insert_2">2</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/three" method="post">
+                                    <input type="hidden" size="1" required name="id_three" value="" placeholder="">
+                                    <button class="btn btn-outline-primary" style="display:none" type="submit" required name="insert_3">3</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/four" method="post">
+                                    <input type="hidden" size="1" required name="id_four" value="" placeholder="">
+                                    <button class="btn btn-outline-primary" style="display:none" type="submit" required name="insert_4">4</button>
+                                </form>
+                            </td>
+                          </tr>
+                        </tbody>
+                    </table>
+
+                    <br>
+                       
+                    <% if(val_ON_OFF != "0" && val_ON_OFF != "1"){ %>
+                    <br>
+                    <br>
+
+                    <a href="/carrinho.html" class="btn btn-outline-primary">Add to the cart</a>
+                    <br>
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        
+                        <div class="btn-group text-end" role="group">
+                          <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sizes available
+                          </button>
+
+                          <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="dropdown">P</a></li>
+                            <li><a class="dropdown-item active" href="dropdown" aria-current="true">M</a></li>
+                            <li><a class="dropdown-item" href="dropdown">G</a></li>
+                          </ul>
+                          
+                        </div>
+                    </div>
+                    
+                    <br>
+                    <br>
+
+                    <div class="text-center">
+                        <p>Comfortable T-shirt made of cotton.</p>
+                    </div>
+
+                </div>
+                <%}%>
+                <br>
+            </main>
+            
+            <% if(val_ON_OFF != "0" && val_ON_OFF != "1"){ %>
+            <footer class="border-top text-muted bg-light">
+                <div class="container">
+                    <div class="row py-3">
+                        <div class="col-12 col-md-4 text-center">
+                            &copy; 2022 - LAMII E-commerce Ltda ME
+                            <br>
+                            Sala 401, Av. Passeio dos Girassóis, 1158 - Lagoa Nova, Natal - RN, 59077-080
+                            <br>
+                        </div>
+                        <div class="col-12 col-md-4 text-center">
+                            <a href="#" class="text-decoration-none text-dark">
+                               Privacy policy
+                            </a>
+                            <br>
+                            <a href="#" class="text-decoration-none text-dark">
+                               Terms of use
+                            </a>
+                            <br>
+                            <a href="#" class="text-decoration-none text-dark">
+                               Who we are
+                            </a>
+                            <br>
+                            <a href="#" class="text-decoration-none text-dark">
+                               Exchanges and returns
+                            </a>
+                            <br>
+                            <a href="#" class="text-decoration-none text-dark">
+                                Products' images comes from: 
+                                <a class="text-reset fw-bold" href="https://br.freepik.com/">freepik.com</a>
+                             </a>
+                        </div>
+                        <div class="col-12 col-md-4 text-center">
+                            <a href="#" class="text-decoration-none text-dark">
+                               Contact via website
+                            </a>
+                            <br>
+                            E-mail:
+                            <a href="mailto:email@dominio.com" class="text-decoration-none text-dark">
+                                LAMIII@ufrn.edu.br
+                            </a>
+                            <br>
+                            Phone:
+                            <a href="phone: 28999990000" class="text-decoration-none text-dark">
+                                (84) 3342-2216
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                    © 2022 Copyright:
+                    <a class="text-reset fw-bold" href="https://labs.imd.ufrn.br/labs/nPITI/laboratorios/LAM_II;jsessionid=D18B849C60F1DFD0884E926341332511.xangai_jvm1">LAMII.com</a>
+                </div>
+            </footer>
+            <%}%>
+    
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+        <!--<script src="/dist/easyzoom.js"></script>-->
+        <script>
+            // Instantiate EasyZoom instances
+            //var $easyzoom = $('.easyzoom').easyZoom();
+
+            const socket = io();
+
+            var oldSpeedValue = 0;
+            var mouseSpeed=0;
+            
+            var idTactile = '0';
+            
+            //-----------------------------------------------------------
+            
+            document.querySelector("[name='btn_on_id']").value = '1';
+            document.querySelector("[name='btn_off_id']").value = '0';
+
+            function clickButtonOff(){
+                var button = document.querySelector("[name='insert_off']");
+                button.click();
+            }
+            
+            //-----------------------------------------------------------
+            
+            function hoverFunction_absence_of_sensation(){
+                document.querySelector("[name='id_zero']").value = '0';
+                var button = document.querySelector("[name='insert_0']");
+                button.click();  
+            }   
+
+            function hoverFunction_CR(){  
+                document.querySelector("[name='id_one']").value = '1';
+                var button = document.querySelector("[name='insert_1']");
+                button.click();
+            }    
+
+            function hoverFunction_FR(){  
+                document.querySelector("[name='id_two']").value = '2';
+                var button = document.querySelector("[name='insert_2']");
+                button.click();
+            }
+
+            function hoverFunction_SM(){ 
+                document.querySelector("[name='id_three']").value = '3';
+                var button = document.querySelector("[name='insert_3']");
+                button.click();  
+            }
+
+            function hoverFunction_SO(){   
+                document.querySelector("[name='id_four']").value = '4';
+                var button = document.querySelector("[name='insert_4']");
+                button.click();
+            } 
+        
+            //-----------------------------------------------------------
+            
+            function hoverFunctionPassive_absence_of_sensation(){
+                idTactile = '0';
+            }
+
+            function hoverFunctionPassive_CR(){  
+                idTactile = '1';
+            }    
+
+            function hoverFunctionPassive_FR(){  
+                idTactile = '2';
+            }
+
+            function hoverFunctionPassive_SM(){ 
+                idTactile = '3';     
+            }
+
+            function hoverFunctionPassive_SO(){   
+                idTactile = '4';
+            }
+        
+            //-----------------------------------------------------------    
+            
+            var image_left = document.getElementById("left_image");
+            var image_center = document.getElementById("center_image");
+            var image_right = document.getElementById("right_image"); 
+
+            function imageWithoutZoom(){
+                if('<%- val_ON_OFF %>' == "0"){    
+                    image_left.className = "img-row-all_1";
+                    image_center.className = "hide";
+                    image_right.className = "hide";
+                }
+                
+                if('<%- val_ON_OFF %>' == "1"){
+                    image_left.className = "img-row-all";
+                    image_center.className = "hide";
+                    image_right.className = "hide";
+                }    
+            }    
+            
+            function imageWithTopZoom(){
+                if('<%- val_ON_OFF %>' == "0"){    
+                    image_left.className = "hide";
+                    image_center.className = "img-row-all_1";
+                    image_right.className = "hide";
+                }
+                
+                if('<%- val_ON_OFF %>' == "1"){
+                    image_left.className = "hide";
+                    image_center.className = "img-row-all";
+                    image_right.className = "hide";
+                }
+            }    
+            
+            function imageWithBottomZoom(){ 
+                if('<%- val_ON_OFF %>' == "0"){   
+                    image_left.className = "hide";
+                    image_center.className = "hide";
+                    image_right.className = "img-row-all_1";
+                }
+
+                if('<%- val_ON_OFF %>' == "1"){
+                    image_left.className = "hide";
+                    image_center.className = "hide";
+                    image_right.className = "img-row-all";
+                }
+            }     
+            
+            //-----------------------------------------------------------
+            
+            var prevEvent, currentEvent;
+            var x_passive=0, y_passive=0;
+                
+            document.documentElement.onmousemove=function(e){
+                x_passive = e.pageX;
+                //console.log("x: " + x_passive);
+                y_passive = e.pageY;
+                //console.log("y: " + y_passive);
+                   
+                var passive_touch = document.getElementById("passive_touch");
+                passive_touch.style.left = (x_passive + 10) + "px";
+                passive_touch.style.top = (y_passive + 10) + "px";
+                
+                currentEvent=e;
+            }
+
+            function trackMouseSpeedFunc(){       
+                if(prevEvent && currentEvent){ 
+                    var movementX=Math.abs(currentEvent.screenX-prevEvent.screenX);
+                    var movementY=Math.abs(currentEvent.screenY-prevEvent.screenY);
+                    var movement=Math.sqrt(movementX*movementX+movementY*movementY); 
+                    //speed=movement/100ms= movement/0.1s= 10*movement/s
+                    var speed=10*movement;//current speed
+                }
+
+                if(oldSpeedValue == 0){
+                    mouseSpeed = speed;
+                }else{
+                    mouseSpeed = (speed + oldSpeedValue)/2;
+                } 
+
+                oldSpeedValue = speed;
+                //console.log("mouseSpeed: ", mouseSpeed);
+
+                socket.emit('mouse_speed_track', mouseSpeed, idTactile);
+                       
+                prevEvent=currentEvent;
+            }
+
+            setInterval(trackMouseSpeedFunc, 500);
+             
+            //-----------------------------------------------------------    
+        
+            function disableScroll() {
+                // Get the current page scroll position
+                scrollTop =
+                window.pageYOffset || document.documentElement.scrollTop;
+                scrollLeft =
+                window.pageXOffset || document.documentElement.scrollLeft,
+          
+                // if any scroll is attempted,
+                // set this to the previous value
+                window.onscroll = function() {
+                    window.scrollTo(scrollLeft, scrollTop);
+                };
+            }
+          
+            function enableScroll() {
+                window.onscroll = function() {};
+            }
+            
+            //#######################################################################
+            
+            if('<%- val_ON_OFF %>' == "1"){
+                disableScroll();
+                
+                var x_active=0, y_active=0;
+                var cursorLeft=0, cursorRight=0, cursorTop=0, cursorBottom=0;
+                // Image of cursor
+                var cursor = document.getElementById("cursorActive");
+                cursor.className = "";
+                
+                // Gets the x,y position of the image cursor
+                x_active = '<%- val_X %>';
+		        y_active = '<%- val_Y %>';
+
+                // Sets the image cursor to new position
+                cursor.style.left = x_active + "px";
+		        cursor.style.top = y_active + "px";
+                
+                cursorLeft = Number(x_active);
+                cursorRight = cursorLeft + 10;
+                cursorTop = Number(y_active);
+                cursorBottom = cursorTop + 12; 
+                
+                var img_1_id = document.getElementById("img_1_id");
+                var coordinatesImg_1_id = img_1_id.getBoundingClientRect();
+                
+                var img_2_id = document.getElementById("img_2_id");
+                var coordinatesImg_2_id = img_2_id.getBoundingClientRect();
+
+                var img_3_id = document.getElementById("img_3_id");
+                var coordinatesImg_3_id = img_3_id.getBoundingClientRect();
+
+                var img_4_id = document.getElementById("img_4_id");
+                var coordinatesImg_4_id = img_4_id.getBoundingClientRect();
+
+                var img_5_id = document.getElementById("img_5_id");
+                var coordinatesImg_5_id = img_5_id.getBoundingClientRect();
+
+                
+                //----------------------------------------------- Inside the image
+                if(cursorLeft > Number(coordinatesImg_1_id.left) && cursorRight < Number(coordinatesImg_1_id.right) && cursorBottom < Number(coordinatesImg_1_id.bottom) && cursorTop > Number(coordinatesImg_1_id.top)){
+                    imageWithTopZoom();
+                    hoverFunction_SM();
+                }
+                if(cursorLeft > Number(coordinatesImg_2_id.left) && cursorRight < Number(coordinatesImg_2_id.right) && cursorBottom < Number(coordinatesImg_2_id.bottom) && cursorTop > Number(coordinatesImg_2_id.top)){
+                    imageWithTopZoom();
+                    hoverFunction_CR();
+                }
+                if(cursorLeft > Number(coordinatesImg_3_id.left) && cursorRight < Number(coordinatesImg_3_id.right) && cursorBottom < Number(coordinatesImg_3_id.bottom) && cursorTop > Number(coordinatesImg_3_id.top)){
+                    imageWithBottomZoom();
+                    hoverFunction_FR();
+                }
+                if(cursorLeft > Number(coordinatesImg_4_id.left) && cursorRight < Number(coordinatesImg_4_id.right) && cursorBottom < Number(coordinatesImg_4_id.bottom) && cursorTop > Number(coordinatesImg_4_id.top)){
+                    imageWithBottomZoom();
+                    hoverFunction_SM();
+                }
+                if(cursorLeft > Number(coordinatesImg_5_id.left) && cursorRight < Number(coordinatesImg_5_id.right) && cursorBottom < Number(coordinatesImg_5_id.bottom) && cursorTop > Number(coordinatesImg_5_id.top)){
+                    imageWithoutZoom();
+                    hoverFunction_absence_of_sensation();
+                }
+                //----------------------------------------------- Outside the image
+                if(cursorTop < Number(coordinatesImg_1_id.top)){
+                    imageWithoutZoom();
+                    hoverFunction_absence_of_sensation();
+                }
+                if(cursorBottom > Number(coordinatesImg_4_id.bottom)){
+                    imageWithoutZoom();
+                    hoverFunction_absence_of_sensation();
+                }             
+            }
+            
+            if('<%- val_ON_OFF %>' == "1"){
+                function Refresh(){
+                    location.reload();
+                }
+                setInterval(Refresh, 200);
+            }
+        
+        </script>
+    </body>
+</html>

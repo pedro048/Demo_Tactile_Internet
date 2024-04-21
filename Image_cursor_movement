@@ -1,0 +1,5 @@
+Monitor 24 pol
+
+pixelPositionX = (((roll + 492) - 680)*26) + 680;
+
+pixelPositionY = 713 - ((713 - (pitch - 202)) * 32);

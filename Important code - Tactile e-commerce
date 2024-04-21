@@ -1,0 +1,23 @@
+var x, y;
+	var px, py;
+	px = py = 0;
+	
+	// Image of cursor
+	var cursor = document.getElementById("cursor");
+		
+	/* The following event listener moves the image pointer
+	with respect to the actual mouse cursor
+	The function is triggered every time mouse is moved */
+	window.addEventListener("mousemove", function(e) {
+        // Gets the x,y position of the mouse cursor
+		x = e.pageX;
+        //console.log("x:");
+        //console.log(x);
+		y = e.pageY;
+        //console.log("y:");
+        //console.log(y);
+
+        // sets the image cursor to new relative position
+		cursor.style.left = (px + x) + "px";
+		cursor.style.top = (py + y) + "px";
+	});
