@@ -7,9 +7,13 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-const conn1 = mongoose.createConnection("mongodb+srv://pedroalves700:8dNIp4h6bNVMF6UY@cluster0.afo8cn1.mongodb.net/tactileSensationsDB", {useNewUrlParser: true});
+const uriRead = process.env.MONGODB_URI_READ;
 
-const conn2 = mongoose.createConnection("mongodb+srv://pedroalves700:8dNIp4h6bNVMF6UY@cluster0.afo8cn1.mongodb.net/tactileProjectDataDB", {useNewUrlParser: true});
+const uriWrite = process.env.MONGODB_URI_WRITE;
+
+const conn1 = mongoose.createConnection(uriRead, {useNewUrlParser: true});
+
+const conn2 = mongoose.createConnection(uriWrite, {useNewUrlParser: true});
 
 const highPulseLowPulseDataSchema = { 
    hp: String,  
