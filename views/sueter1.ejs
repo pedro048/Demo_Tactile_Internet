@@ -21,7 +21,7 @@
             
         <style>
             body {
-                background-color: #FFFAE7;
+                background-color: #D0BFFF;
                 font-family: "Montserrat";
             }
             #carouselMain {
@@ -196,7 +196,7 @@
 
         <% if(val_ON_OFF == "0"){ %>
             <div id="passive_touch" class="">
-                <img src="/Tactile_Glove_Experiment_QoE/Passive_Touch.jpg" width="120" height="35" />
+                <img src="/Tactile_Glove_Experiment_QoE/Touch_Sensor.jpg" width="120" height="35" />
             </div>
         <% } %>
 
@@ -540,21 +540,20 @@
 
                     <br>
                     <br>
-
-                    Active Touch: 
+ 
                     <table cellspacing="10" class="centralization">
                         <tbody>
                           <tr>
                             <td>
                                 <form action="/on" method="post">
                                     <input type="hidden" size="1" name="btn_on_id" placeholder="">
-                                    <button class="btn btn-outline-primary" id="btn_on">On</button>
+                                    
                                 </form>
                             </td>
                             <td>
                                 <form action="/off" method="post">
                                     <input type="hidden" size="1" name="btn_off_id" placeholder="">
-                                    <button class="btn btn-outline-primary" id="btn_off" onmouseover="clickButtonOff()" required name="insert_off">Off</button>
+                                    
                                 </form>
                             </td>
                           </tr>

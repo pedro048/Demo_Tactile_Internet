@@ -7,6 +7,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
+
 const uriRead = process.env.MONGODB_URI_READ;
 
 const uriWrite = process.env.MONGODB_URI_WRITE;
