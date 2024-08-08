@@ -7,7 +7,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-
+/*
 const uriRead = process.env.MONGODB_URI_READ;
 
 const uriWrite = process.env.MONGODB_URI_WRITE;
@@ -15,12 +15,18 @@ const uriWrite = process.env.MONGODB_URI_WRITE;
 const conn1 = mongoose.createConnection(uriRead, {useNewUrlParser: true});
 
 const conn2 = mongoose.createConnection(uriWrite, {useNewUrlParser: true});
+*/
 
-/*
 const conn1 = mongoose.createConnection("mongodb+srv://pedroalves700:8dNIp4h6bNVMF6UY@cluster0.afo8cn1.mongodb.net/tactileSensationsDB", {useNewUrlParser: true});
 
 const conn2 = mongoose.createConnection("mongodb+srv://pedroalves700:8dNIp4h6bNVMF6UY@cluster0.afo8cn1.mongodb.net/tactileProjectDataDB", {useNewUrlParser: true});
-*/
+
+const highPulseLowPulseDataSchema = { 
+   hp: String,  
+   lp: String
+}
+
+const HighPulseLowPulseData = conn2.model('HighPulseLowPulseData', highPulseLowPulseDataSchema);
 
 const tactileSensationsSchema = {
    id_tactile: String,
@@ -32,39 +38,15 @@ const tactileSensationsSchema = {
    dutyCycle_high_speed: String,
    hp_high_speed: Number,
    lp_high_speed: Number,
-   hp_high_speed_ms: Number,
-   lp_high_speed_ms: Number,
-   t_high_speed_ms: Number,
-   d_high_speed_ms: Number,
    highPulseMs_low_speed: String,
    lowPulseMs_low_speed: String,
    frequency_low_speed: String,
    dutyCycle_low_speed: String, 
    hp_low_speed: Number,  
-   lp_low_speed: Number,
-   hp_low_speed_ms: Number,
-   lp_low_speed_ms: Number,
-   t_low_speed_ms: Number,
-   d_low_speed_ms: Number
+   lp_low_speed: Number
 }
 
 const TactileSensation = conn1.model("TactileSensation", tactileSensationsSchema);
-
-const highPulseLowPulseMsDataSchema = {
-   hp_ms: Number,
-   lp_ms: Number,
-   t: Number,
-   d: Number
-}
-
-const HighPulseLowPulseMsData = conn2.model('HighPulseLowPulseMsData', highPulseLowPulseMsDataSchema);
-
-const test = new HighPulseLowPulseMsData({
-   hp_ms: 0,
-   lp_ms: 0,
-   t: 0,
-   d: 0
-});   
 
 const absence_of_sensation = new TactileSensation({
    id_tactile: "0",
@@ -76,20 +58,12 @@ const absence_of_sensation = new TactileSensation({
    dutyCycle_high_speed: "0%",
    hp_high_speed: 0,
    lp_high_speed: 0,
-   hp_high_speed_ms: 0,
-   lp_high_speed_ms: 0,
-   t_high_speed_ms: 0,
-   d_high_speed_ms: 0,
    highPulseMs_low_speed: "0ms",
    lowPulseMs_low_speed: "0ms",
    frequency_low_speed: "0Hz",
    dutyCycle_low_speed: "0%", 
    hp_low_speed: 0,  
-   lp_low_speed: 0,
-   hp_low_speed_ms: 0,
-   lp_low_speed_ms: 0,
-   t_low_speed_ms: 0,
-   d_low_speed_ms: 0
+   lp_low_speed: 0
 });
 
 const coarse_roughness = new TactileSensation({
@@ -102,20 +76,12 @@ const coarse_roughness = new TactileSensation({
    dutyCycle_high_speed: "32%",
    hp_high_speed: 173,
    lp_high_speed: 362,
-   hp_high_speed_ms: 45,
-   lp_high_speed_ms: 94,
-   t_high_speed_ms: 139,
-   d_high_speed_ms: 32,
    highPulseMs_low_speed: "80ms",
    lowPulseMs_low_speed: "170ms",
    frequency_low_speed: "4Hz",
    dutyCycle_low_speed: "68%", 
    hp_low_speed: 308,  
-   lp_low_speed: 654,
-   hp_low_speed_ms: 80,
-   lp_low_speed_ms: 170,
-   t_low_speed_ms: 250,
-   d_low_speed_ms: 68
+   lp_low_speed: 654
 });
 
 const fine_roughness = new TactileSensation({
@@ -128,20 +94,12 @@ const fine_roughness = new TactileSensation({
    dutyCycle_high_speed: "34%",
    hp_high_speed: 85,
    lp_high_speed: 162,
-   hp_high_speed_ms: 22,
-   lp_high_speed_ms: 42,
-   t_high_speed_ms: 64,
-   d_high_speed_ms: 34,
    highPulseMs_low_speed: "28.33ms",
    lowPulseMs_low_speed: "55ms",
    frequency_low_speed: "12Hz",
    dutyCycle_low_speed: "34%", 
    hp_low_speed: 109,  
-   lp_low_speed: 212,
-   hp_low_speed_ms: 28,
-   lp_low_speed_ms: 55,
-   t_low_speed_ms: 83,
-   d_low_speed_ms: 34
+   lp_low_speed: 212
 });
 
 const smoothness = new TactileSensation({
@@ -154,20 +112,12 @@ const smoothness = new TactileSensation({
    dutyCycle_high_speed: "67%",
    hp_high_speed: 8,
    lp_high_speed: 4,
-   hp_high_speed_ms: 2,
-   lp_high_speed_ms: 1,
-   t_high_speed_ms: 3,
-   d_high_speed_ms: 67,
    highPulseMs_low_speed: "1.38ms",
    lowPulseMs_low_speed: "1.62ms",
    frequency_low_speed: "333Hz",
    dutyCycle_low_speed: "46%", 
    hp_low_speed: 5,  
-   lp_low_speed: 6,
-   hp_low_speed_ms: 1,
-   lp_low_speed_ms: 2,
-   t_low_speed_ms: 3,
-   d_low_speed_ms: 46
+   lp_low_speed: 6
 });
 
 const softness = new TactileSensation({
@@ -180,29 +130,19 @@ const softness = new TactileSensation({
    dutyCycle_high_speed: "24%",
    hp_high_speed: 6,
    lp_high_speed: 18,
-   hp_high_speed_ms: 1,
-   lp_high_speed_ms: 5,
-   t_high_speed_ms: 6,
-   d_high_speed_ms: 24,
    highPulseMs_low_speed: "1ms",
    lowPulseMs_low_speed: "5ms",
    frequency_low_speed: "166.7Hz",
    dutyCycle_low_speed: "16.7%", 
    hp_low_speed: 4,  
-   lp_low_speed: 19,
-   hp_low_speed_ms: 1,
-   lp_low_speed_ms: 5,
-   t_low_speed_ms: 6,
-   d_low_speed_ms: 17
+   lp_low_speed: 19
 });
 
-/*
-absence_of_sensation.save();
-coarse_roughness.save();
-fine_roughness.save();
-smoothness.save();
-softness.save();
-*/
+//absence_of_sensation.save();
+//coarse_roughness.save();
+//fine_roughness.save();
+//smoothness.save();
+//softness.save();
 
 /*
 TactileSensation.findByIdAndRemove("63f129da82a3bea1e2691429", function(err){
@@ -214,17 +154,31 @@ TactileSensation.findByIdAndRemove("63f129da82a3bea1e2691429", function(err){
 
 var oldMouseSpeedValue = 0;
 
+var GyX;
+var GyY;
+
+var S_GyX;
+var S_GyY;
+
+var id_on_off;
+var id_on_off_1 = "0";
+
+var lock_X = false;
+var lock_Y = false;
+
+var velX;
+var velY;
+
+var velMaxActive = 2.08;//2.56;
 var velMaxPassive = 600;
 
 var hp_value; //high pulse
 var lp_value; //low pulse
 
-var value_hp_high_speed_ms;
-var value_lp_high_speed_ms;
-var value_hp_low_speed_ms;
-var value_lp_low_speed_ms;
-var t_ms;
-var duty_cycle;
+var hp_high_speed;  
+var hp_low_speed;  
+var lp_high_speed; 
+var lp_low_speed;
 
 var auxBinarySpeed;
 
@@ -233,12 +187,42 @@ var auxLimitedVel;
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
-//-------------------------------------------------------------------------
+//#######################################################################
+
+app.post("/on", function(req, res){
+   id_on_off = Number(req.body.btn_on_id);
+   id_on_off_1 = id_on_off.toString();
+   
+   var activeTouch = "6\n";
+   console.log("activeTouch: ", activeTouch);
+   arduino.write(activeTouch); 
+});
+
+//---------------------------------------------------
+
+app.post("/off", function(req, res){
+   id_on_off = Number(req.body.btn_off_id);
+   id_on_off_1 = id_on_off.toString();
+
+   var passiveTouch = "7\n";
+   console.log("passiveTouch: ", passiveTouch);
+   arduino.write(passiveTouch); 
+});
+
+//#######################################################################
 
 app.post("/zero", function(req, res){
    var num0 = Number(req.body.id_zero);
    var idTactile0 = num0.toString();
    console.log("idTactile: ", idTactile0);
+   
+   if(lock_X == false && lock_Y == true){ 
+      activeTouchMovement(velX, idTactile0);         
+   }
+      
+   if(lock_X == true && lock_Y == false){ 
+      activeTouchMovement(velY, idTactile0);      
+   }
 });
 
 //---------------------------------------------------
@@ -246,7 +230,15 @@ app.post("/zero", function(req, res){
 app.post("/one", function(req, res){
    var num1 = Number(req.body.id_one);
    var idTactile1 = num1.toString();
-   console.log("idTactile: ", idTactile1);            
+   console.log("idTactile: ", idTactile1);
+
+   if(lock_X == false && lock_Y == true){ 
+      activeTouchMovement(velX, idTactile1);         
+   }
+      
+   if(lock_X == true && lock_Y == false){ 
+      activeTouchMovement(velY, idTactile1);      
+   }            
 });
 
 //---------------------------------------------------
@@ -254,7 +246,15 @@ app.post("/one", function(req, res){
 app.post("/two", function(req, res){
    var num2 = Number(req.body.id_two);
    var idTactile2 = num2.toString();
-   console.log("idTactile: ", idTactile2);       
+   console.log("idTactile: ", idTactile2);
+
+   if(lock_X == false && lock_Y == true){
+      activeTouchMovement(velX, idTactile2); 
+   }
+
+   if(lock_X == true && lock_Y == false){
+      activeTouchMovement(velY, idTactile2);   
+   }       
 });
 
 //---------------------------------------------------
@@ -262,7 +262,15 @@ app.post("/two", function(req, res){
 app.post("/three", function(req, res){
    var num3 = Number(req.body.id_three);
    var idTactile3 = num3.toString();
-   console.log("idTactile: ", idTactile3);             
+   console.log("idTactile: ", idTactile3);
+
+   if(lock_X == false && lock_Y == true){
+      activeTouchMovement(velX, idTactile3);
+   }
+      
+   if(lock_X == true && lock_Y == false){
+      activeTouchMovement(velY, idTactile3);
+   }              
 });
 
 //---------------------------------------------------
@@ -270,66 +278,18 @@ app.post("/three", function(req, res){
 app.post("/four", function(req, res){
    var num4 = Number(req.body.id_four);
    var idTactile4 = num4.toString();
-   console.log("idTactile: ", idTactile4);      
+   console.log("idTactile: ", idTactile4);
+
+   if(lock_X == false && lock_Y == true){
+      activeTouchMovement(velX, idTactile4);
+   }
+
+   if(lock_X == true && lock_Y == false){
+      activeTouchMovement(velY, idTactile4);   
+   }        
 });
 
-//-------------------------------------------------------------------------
-
-function sendTactileSensation(vel, velMax, idTactile){
-   console.log("vel", vel);
-   console.log("velMax", velMax);
-   console.log("idTactile", idTactile);
-   
-   readFromDatabase(idTactile); 
-
-   console.log("value_hp_high_speed_ms", value_hp_high_speed_ms);
-   console.log("value_lp_high_speed_ms", value_lp_high_speed_ms);
-   console.log("t_ms", t_ms);
-   console.log("duty_cycle", duty_cycle);
-   
-   /*
-
-   hp_value = Math.round(highPulse(vel, velMax, value_hp_high_speed_ms, value_lp_high_speed_ms));
-   lp_value = Math.round(lowPulse(vel, velMax, value_hp_low_speed_ms, value_lp_low_speed_ms));
-
-   t_ms = hp_value + lp_value;
-   
-   duty_cycle = Math.round((100*hp_value)/t_ms)
-
-   console.log("limitedSpeed: ", auxLimitedVel);
-
-   console.log("v_high: ", hp_value);
-   console.log("v_low: ", lp_value + "\n");
-
-   */
-
-   HighPulseLowPulseMsData.findByIdAndUpdate("66b427edbaa0ce5782e956d0", { hp_ms: value_hp_high_speed_ms }, function(err){
-      if (err){
-         console.log(err);
-      }
-   });
-
-   HighPulseLowPulseMsData.findByIdAndUpdate("66b427edbaa0ce5782e956d0", { lp_ms: value_lp_high_speed_ms }, function(err){
-      if (err){
-         console.log(err);
-      }
-   });
-   
-   HighPulseLowPulseMsData.findByIdAndUpdate("66b427edbaa0ce5782e956d0", { t: t_ms }, function(err){
-      if (err){
-         console.log(err);
-      }
-   });
-
-   HighPulseLowPulseMsData.findByIdAndUpdate("66b427edbaa0ce5782e956d0", { d: duty_cycle }, function(err){
-      if (err){
-         console.log(err);
-      }
-   });
-   
-}
-
-//-------------------------------------------------------------------------
+//#######################################################################
 
 function readFromDatabase(tactile_id){
    TactileSensation.find({id_tactile: tactile_id}, function(err, tactilesensations){
@@ -337,33 +297,29 @@ function readFromDatabase(tactile_id){
          console.log(err);
       }else{
          tactilesensations.forEach(function(tactilesensation){
-            value_hp_high_speed_ms = tactilesensation.hp_high_speed_ms;
-            value_lp_high_speed_ms = tactilesensation.lp_high_speed_ms;
-            t_ms = tactilesensation.t_high_speed_ms;
-            duty_cycle = tactilesensation.d_high_speed_ms;   
+            hp_high_speed = tactilesensation.hp_high_speed;
+            hp_low_speed = tactilesensation.hp_low_speed;
+            lp_high_speed = tactilesensation.lp_high_speed;
+            lp_low_speed = tactilesensation.lp_low_speed;   
          });
       }    
    });
 }
-
 //-------------------------------------------------------------------------
-/*
-function highPulse(vel, velMax, v_hp_high_speed, v_hp_low_speed){
+function highPulse(vel, velMax, hp_high_speed, hp_low_speed){
    var limitedVelValue = limitedVel(vel, velMax);
    var velActivePassive = limitedVelValue/velMax;
-   var hp = binarySpeed(velActivePassive)*v_hp_low_speed+velActivePassive*(v_hp_high_speed-v_hp_low_speed);
+   var hp = binarySpeed(velActivePassive)*hp_low_speed+velActivePassive*(hp_high_speed-hp_low_speed);
    return hp;
 }
 //-------------------------------------------------------------------------
-
-function lowPulse(vel, velMax, v_lp_high_speed, v_lp_low_speed){
+function lowPulse(vel, velMax, lp_high_speed, lp_low_speed){
    var limitedVelValue = limitedVel(vel, velMax);
    var velActivePassive = limitedVelValue/velMax;
-   var lp = binarySpeed(velActivePassive)*v_lp_low_speed+velActivePassive*(v_lp_high_speed-v_lp_low_speed);
+   var lp = binarySpeed(velActivePassive)*lp_low_speed+velActivePassive*(lp_high_speed-lp_low_speed);
    return lp;
 }
 //-------------------------------------------------------------------------
-
 function limitedVel(vel, velMax){
    if(vel >= velMax){
       auxLimitedVel = velMax;
@@ -375,7 +331,6 @@ function limitedVel(vel, velMax){
    return auxLimitedVel;
 }
 //-------------------------------------------------------------------------
-
 function binarySpeed(vel){
    if(vel == 0){
       auxBinarySpeed = 0;
@@ -386,20 +341,64 @@ function binarySpeed(vel){
    }
    return auxBinarySpeed;
 }
-*/
-//-------------------------------------------------------------------------
 
+//#######################################################################
+
+function sendTactileSensation(vel, velMax, idTactile){
+   readFromDatabase(idTactile);
+         
+   hp_value = Math.round(highPulse(vel, velMax, hp_high_speed, hp_low_speed) + 2000);
+   lp_value = Math.round(lowPulse(vel, velMax, lp_high_speed, lp_low_speed) + 9000);
+
+   /*
+   hp_value = hp_value - 2000
+   lp_value = lp_value - 9000
+   */
+
+   console.log("limitedSpeed: ", auxLimitedVel);
+
+   console.log("v_high: ", hp_value.toString());
+   console.log("v_low: ", lp_value.toString() + "\n");
+
+   /*
+   arduino.write(hp_value.toString() + "\n");
+   arduino.write(lp_value.toString() + "\n");
+   */
+
+   var hp = hp_value.toString() + "\n";
+   var lp = lp_value.toString() + "\n";
+
+   HighPulseLowPulseData.findByIdAndUpdate("6436ece67c7d81b9fb201970", { hp: hp }, function(err){
+      if (err){
+         console.log(err);
+      }
+   });
+
+   HighPulseLowPulseData.findByIdAndUpdate("6436ece67c7d81b9fb201970", { lp: lp }, function(err){
+      if (err){
+         console.log(err);
+      }
+   });   
+}
+
+//#######################################################################
+
+function activeTouchMovement(vel, idTactile){
+   console.log("speedValue: ", vel);
+
+   sendTactileSensation(vel, velMaxActive, idTactile);
+}
+//-------------------------------------------------------------------------
 io.on('connection', (socket) => {
    socket.on('mouse_speed_track', function(speed_value, idTactile){
       if(oldMouseSpeedValue == 0 || speed_value == oldMouseSpeedValue){
          oldMouseSpeedValue = speed_value;
       }else if(speed_value != oldMouseSpeedValue){
          oldMouseSpeedValue = speed_value;
-         /*
          console.log("speedValue: ", speed_value);
          console.log("idTactile: ", idTactile);
-         */
-         sendTactileSensation(Math.round(speed_value), velMaxPassive, idTactile);
+
+         sendTactileSensation(speed_value, velMaxPassive, idTactile);
       }
    });
      
@@ -408,7 +407,7 @@ io.on('connection', (socket) => {
    });
 });       
 
-//-------------------------------------------------------------------------
+//#######################################################################
 
 function main(){
 
@@ -421,49 +420,49 @@ function main(){
       res.render("indeex", {}); 
    });
    app.get("/views/camisabasica.ejs", function(req, res){
-      res.render("camisabasica", {});  
+      res.render("camisabasica", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/views/camisapolo.ejs", function(req, res){
-      res.render("camisapolo", {});  
+      res.render("camisapolo", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/views/casacoalgodao1.ejs", function(req, res){
-      res.render("casacoalgodao1", {}); 
+      res.render("casacoalgodao1", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY}); 
    });
    app.get("/views/casacoalgodao2.ejs", function(req, res){
-      res.render("casacoalgodao2", {});  
+      res.render("casacoalgodao2", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/views/casacocroche1.ejs", function(req, res){
-      res.render("casacocroche1", {});  
+      res.render("casacocroche1", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/views/casacocroche2.ejs", function(req, res){
-      res.render("casacocroche2", {});  
+      res.render("casacocroche2", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/views/casacocroche3.ejs", function(req, res){
-      res.render("casacocroche3", {});  
+      res.render("casacocroche3", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/views/casacocroche4.ejs", function(req, res){
-      res.render("casacocroche4", {});  
+      res.render("casacocroche4", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/views/roupajeans.ejs", function(req, res){
-      res.render("roupajeans", {});  
+      res.render("roupajeans", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/views/salto.ejs", function(req, res){
-      res.render("salto", {});  
+      res.render("salto", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/views/sandalia_amarela.ejs", function(req, res){
-      res.render("sandalia_amarela", {});  
+      res.render("sandalia_amarela", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/views/sueter1.ejs", function(req, res){
-      res.render("sueter1", {});  
+      res.render("sueter1", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/views/sueter2.ejs", function(req, res){
-      res.render("sueter2", {});  
+      res.render("sueter2", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/views/sueter3.ejs", function(req, res){
-      res.render("sueter3", {});  
+      res.render("sueter3", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/views/tenis.ejs", function(req, res){
-      res.render("tenis", {});  
+      res.render("tenis", {val_X: GyX, val_Y: GyY, val_ON_OFF: id_on_off_1, S_val_X: S_GyX, S_val_Y: S_GyY});  
    });
    app.get("/cadastro.html", function(req, res){
       res.sendFile(__dirname + "/cadastro.html");  

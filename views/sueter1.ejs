@@ -180,25 +180,13 @@
     </head>
 
     <body style="min-width: 372px">
-    <!--    
-        <% if(val_ON_OFF == "1"){ %> 
-            <h1>X: <%= S_val_X %></h1>
-            <br>
-            <h1>Y: <%= S_val_Y %></h1>        
-        <% } %>
-    -->    
-    
-        <% if(val_ON_OFF == "1"){ %>  
-            <div id="cursorActive" class="hide">
-                <img src="/Tactile_Glove_Experiment_QoE/tactile_cursor.png" width="150" height="69" />
-            </div>
-        <% } %>
+   
 
-        <% if(val_ON_OFF == "0"){ %>
+    
             <div id="passive_touch" class="">
                 <img src="/Tactile_Glove_Experiment_QoE/Touch_Sensor.jpg" width="120" height="35" />
             </div>
-        <% } %>
+    
 
         <div class="d-flex flex-column wrapper">
             <nav class="navbar navbar-expand-lg bg-dark border-bottom shadow-sm mb-2">
@@ -314,89 +302,7 @@
 
             </div>
 
-            <% if(val_ON_OFF != "0" && val_ON_OFF != "1"){ %>
-            <div class="container">
-                <div id="carouselMain" class="carousel slide carousel-dark" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button
-                            type="button"
-                            data-bs-target="#carouselMain"
-                            data-bs-slide-to="0"
-                            class="active"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselMain"
-                            data-bs-slide-to="1"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselMain"
-                            data-bs-slide-to="2"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselMain"
-                            data-bs-slide-to="3"
-                        ></button>
-                        <button
-                            type="button"
-                            data-bs-target="#carouselMain"
-                            data-bs-slide-to="4"
-                        ></button>
-                    </div>
-                    
-                    
-                    <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="5000">
-                            <img src="/Tactile_Glove_Experiment_QoE/ufrn.jpg" style="height: 400px; width: 700px;" class="d-block w-100 img-fluid" alt="Restaurando imagem">
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="5000">
-                            <img src="/Tactile_Glove_Experiment_QoE/imd.jpg" style="height: 400px; width: 700px;" class="d-block w-100 img-fluid" alt="Restaurando imagem">
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="5000">
-                            <img src="/Tactile_Glove_Experiment_QoE/dca.jpg" style="height: 400px; width: 700px;" class="d-block w-100 img-fluid" alt="Restaurando imagem">
-                            <div class="carousel-caption d-none d-md-block">
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="5000">
-                          <img src="/Tactile_Glove_Experiment_QoE/ufsc.jpg" style="height: 400px; width: 700px;" class="d-block w-100 img-fluid" alt="Restaurando imagem">
-                          <div class="carousel-caption d-none d-md-block">
-                          </div>
-                      </div>
-                      <div class="carousel-item" data-bs-interval="5000">
-                        <img src="/Tactile_Glove_Experiment_QoE/King's_College_London_logo.jpg" style="height: 400px; width: 700px;" class="d-block w-100 img-fluid" alt="Restaurando imagem">
-                        <div class="carousel-caption d-none d-md-block">
-                        </div>
-                        </div>
-                    </div>
-                    
-                    <button
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#carouselMain"
-                        data-bs-slide="prev"
-                    >
-                        <span class="carousel-control-prev-icon"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#carouselMain"
-                        data-bs-slide="next"
-                    >
-                        <span class="carousel-control-next-icon"></span>
-                        <span class="visually-hidden">Próximo</span>
-                    </button>
-                </div>
-                <hr class="mt-2"/>
-            </div>
-            <% } %>
+            
             
             <br>
             <br>
@@ -410,7 +316,7 @@
                     <br>
                     <br> 
 
-                    <% if(val_ON_OFF == "0"){ %>
+                   
                         <div class="img-row-all_1" id="left_image">
                             <div class="row-1-passive"> 
                                 <div class="col-1-passive img-col">
@@ -441,95 +347,9 @@
                             </div>
                         </div>
 
-                    <% } %>
+                
 
-                    <% if(val_ON_OFF == "1"){ %>
-                            
-                            <div class="img-box">
-                                <div class="img-row-all" id="left_image">
-                                    <div class="img-col-1 img-col" id="img_1_id">       
-                                        <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_sueter1/1.png" alt=""/>            
-                                    </div>
-
-                                    <div class="img-col-2 img-col">
-                                        <div class="img-row-1-col-2">
-                                            <div class="img-col-1-row-1-col-2 img-col" id="img_2_id">
-                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_sueter1/2.png" alt=""/> 
-                                            </div>       
-                                        </div>
-
-                                        <div class="img-row-2-col-2">
-                                            <div class="img-col-1-row-2-col-2 img-col" id="img_3_id">
-                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_sueter1/3.png" alt=""/> 
-                                            </div>       
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="img-col-3 img-col" id="img_4_id">
-                                        <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_sueter1/4.png" alt=""/> 
-                                    </div>
-                                </div>    
-                                        
-
-                                <div class="hide" id="center_image">
-                                    <div class="img-col-1 img-col" id="img_1_id">       
-                                        <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_sueter1/1.png" alt=""/>            
-                                    </div>
-
-                                    <div class="img-col-2 img-col">
-                                        <div class="img-row-1-col-2">
-                                            <div class="img-col-1-row-1-col-2 img-col" id="img_2_id">
-                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_sueter1/2.png" alt=""/> 
-                                            </div>       
-                                        </div>
-
-                                        <div class="img-row-2-col-2">
-                                            <div class="img-col-1-row-2-col-2 img-col" id="img_3_id">
-                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_sueter1/3.png" alt=""/> 
-                                            </div>       
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="img-col-3 img-col" id="img_4_id">
-                                        <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_sueter1/4.png" alt=""/> 
-                                    </div>
-
-                                    <div class="img-col-4 img-col">
-                                        <img src="/Tactile_Glove_Experiment_QoE/Zoom_sueter1/sueter1_top.png" alt="" width="450" height="420"/>
-                                    </div>
-                                </div>
-
-                                
-                                <div class="hide" id="right_image">
-                                    <div class="img-col-1 img-col" id="img_1_id">       
-                                        <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_sueter1/1.png" alt=""/>            
-                                    </div>
-
-                                    <div class="img-col-2 img-col">
-                                        <div class="img-row-1-col-2">
-                                            <div class="img-col-1-row-1-col-2 img-col" id="img_2_id">
-                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_sueter1/2.png" alt=""/> 
-                                            </div>       
-                                        </div>
-
-                                        <div class="img-row-2-col-2">
-                                            <div class="img-col-1-row-2-col-2 img-col" id="img_3_id">
-                                                <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_sueter1/3.png" alt=""/> 
-                                            </div>       
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="img-col-3 img-col" id="img_4_id">
-                                        <img src="/Tactile_Glove_Experiment_QoE/ActiveTouch_sueter1/4.png" alt=""/> 
-                                    </div>
-
-                                    <div class="img-col-4 img-col">
-                                        <img src="/Tactile_Glove_Experiment_QoE/Zoom_sueter1/sueter1_bottom.png" alt="" width="450" height="420"/>
-                                    </div>
-                                </div>
-                            </div>
-                                      
-                    <% } %>      
+                       
             
                     <map name="workmap">
                         <area shape="rect" coords="0,3,145,419" alt="absence_of_sensation_withoutZoom_1" href="" onmouseover="imageWithoutZoom(), hoverFunctionPassive_absence_of_sensation()">
@@ -602,95 +422,11 @@
 
                     <br>
                        
-                    <% if(val_ON_OFF != "0" && val_ON_OFF != "1"){ %>
-                    <br>
-                    <br>
-
-                    <a href="/carrinho.html" class="btn btn-outline-primary">Add to the cart</a>
-                    <br>
-                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                        
-                        <div class="btn-group text-end" role="group">
-                          <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Sizes available
-                          </button>
-
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="dropdown">P</a></li>
-                            <li><a class="dropdown-item active" href="dropdown" aria-current="true">M</a></li>
-                            <li><a class="dropdown-item" href="dropdown">G</a></li>
-                          </ul>
-                          
-                        </div>
-                    </div>
                     
-                    <br>
-                    <br>
-
-                    <div class="text-center">
-                        <p>Comfortable T-shirt made of cotton.</p>
-                    </div>
-
-                </div>
-                <%}%>
                 <br>
             </main>
             
-            <% if(val_ON_OFF != "0" && val_ON_OFF != "1"){ %>
-            <footer class="border-top text-muted bg-light">
-                <div class="container">
-                    <div class="row py-3">
-                        <div class="col-12 col-md-4 text-center">
-                            &copy; 2022 - LAMII E-commerce Ltda ME
-                            <br>
-                            Sala 401, Av. Passeio dos Girassóis, 1158 - Lagoa Nova, Natal - RN, 59077-080
-                            <br>
-                        </div>
-                        <div class="col-12 col-md-4 text-center">
-                            <a href="#" class="text-decoration-none text-dark">
-                               Privacy policy
-                            </a>
-                            <br>
-                            <a href="#" class="text-decoration-none text-dark">
-                               Terms of use
-                            </a>
-                            <br>
-                            <a href="#" class="text-decoration-none text-dark">
-                               Who we are
-                            </a>
-                            <br>
-                            <a href="#" class="text-decoration-none text-dark">
-                               Exchanges and returns
-                            </a>
-                            <br>
-                            <a href="#" class="text-decoration-none text-dark">
-                                Products' images comes from: 
-                                <a class="text-reset fw-bold" href="https://br.freepik.com/">freepik.com</a>
-                             </a>
-                        </div>
-                        <div class="col-12 col-md-4 text-center">
-                            <a href="#" class="text-decoration-none text-dark">
-                               Contact via website
-                            </a>
-                            <br>
-                            E-mail:
-                            <a href="mailto:email@dominio.com" class="text-decoration-none text-dark">
-                                LAMIII@ufrn.edu.br
-                            </a>
-                            <br>
-                            Phone:
-                            <a href="phone: 28999990000" class="text-decoration-none text-dark">
-                                (84) 3342-2216
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-                    © 2022 Copyright:
-                    <a class="text-reset fw-bold" href="https://labs.imd.ufrn.br/labs/nPITI/laboratorios/LAM_II;jsessionid=D18B849C60F1DFD0884E926341332511.xangai_jvm1">LAMII.com</a>
-                </div>
-            </footer>
-            <%}%>
+            
     
         <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -709,13 +445,7 @@
             
             //-----------------------------------------------------------
             
-            document.querySelector("[name='btn_on_id']").value = '1';
-            document.querySelector("[name='btn_off_id']").value = '0';
-
-            function clickButtonOff(){
-                var button = document.querySelector("[name='insert_off']");
-                button.click();
-            }
+         
             
             //-----------------------------------------------------------
             
@@ -778,45 +508,27 @@
             var image_right = document.getElementById("right_image"); 
 
             function imageWithoutZoom(){
-                if('<%- val_ON_OFF %>' == "0"){    
+                   
                     image_left.className = "img-row-all_1";
                     image_center.className = "hide";
                     image_right.className = "hide";
-                }
-                
-                if('<%- val_ON_OFF %>' == "1"){
-                    image_left.className = "img-row-all";
-                    image_center.className = "hide";
-                    image_right.className = "hide";
-                }    
+                 
             }    
             
             function imageWithTopZoom(){
-                if('<%- val_ON_OFF %>' == "0"){    
+                
                     image_left.className = "hide";
                     image_center.className = "img-row-all_1";
                     image_right.className = "hide";
-                }
-                
-                if('<%- val_ON_OFF %>' == "1"){
-                    image_left.className = "hide";
-                    image_center.className = "img-row-all";
-                    image_right.className = "hide";
-                }
+             
             }    
             
             function imageWithBottomZoom(){ 
-                if('<%- val_ON_OFF %>' == "0"){   
+                 
                     image_left.className = "hide";
                     image_center.className = "hide";
                     image_right.className = "img-row-all_1";
-                }
-
-                if('<%- val_ON_OFF %>' == "1"){
-                    image_left.className = "hide";
-                    image_center.className = "hide";
-                    image_right.className = "img-row-all";
-                }
+              
             }     
             
             //-----------------------------------------------------------
@@ -884,75 +596,7 @@
             
             //#######################################################################
             
-            if('<%- val_ON_OFF %>' == "1"){
-                disableScroll();
-                
-                var x_active=0, y_active=0;
-                var cursorLeft=0, cursorRight=0, cursorTop=0, cursorBottom=0;
-                // Image of cursor
-                var cursor = document.getElementById("cursorActive");
-                cursor.className = "";
-                
-                // Gets the x,y position of the image cursor
-                x_active = '<%- val_X %>';
-		        y_active = '<%- val_Y %>';
-
-                // Sets the image cursor to new position
-                cursor.style.left = x_active + "px";
-		        cursor.style.top = y_active + "px";
-                
-                cursorLeft = Number(x_active);
-                cursorRight = cursorLeft + 10;
-                cursorTop = Number(y_active);
-                cursorBottom = cursorTop + 12; 
-                
-                var img_1_id = document.getElementById("img_1_id");
-                var coordinatesImg_1_id = img_1_id.getBoundingClientRect();
-                
-                var img_2_id = document.getElementById("img_2_id");
-                var coordinatesImg_2_id = img_2_id.getBoundingClientRect();
-
-                var img_3_id = document.getElementById("img_3_id");
-                var coordinatesImg_3_id = img_3_id.getBoundingClientRect();
-
-                var img_4_id = document.getElementById("img_4_id");
-                var coordinatesImg_4_id = img_4_id.getBoundingClientRect();
-
-                
-                //----------------------------------------------- Inside the image
-                if(cursorLeft > Number(coordinatesImg_1_id.left) && cursorRight < Number(coordinatesImg_1_id.right) && cursorBottom < Number(coordinatesImg_1_id.bottom) && cursorTop > Number(coordinatesImg_1_id.top)){
-                    imageWithoutZoom();
-                    hoverFunction_absence_of_sensation();
-                }
-                if(cursorLeft > Number(coordinatesImg_2_id.left) && cursorRight < Number(coordinatesImg_2_id.right) && cursorBottom < Number(coordinatesImg_2_id.bottom) && cursorTop > Number(coordinatesImg_2_id.top)){
-                    imageWithTopZoom();
-                    hoverFunction_absence_of_sensation();
-                }
-                if(cursorLeft > Number(coordinatesImg_3_id.left) && cursorRight < Number(coordinatesImg_3_id.right) && cursorBottom < Number(coordinatesImg_3_id.bottom) && cursorTop > Number(coordinatesImg_3_id.top)){
-                    imageWithBottomZoom();
-                    hoverFunction_FR();
-                }
-                if(cursorLeft > Number(coordinatesImg_4_id.left) && cursorRight < Number(coordinatesImg_4_id.right) && cursorBottom < Number(coordinatesImg_4_id.bottom) && cursorTop > Number(coordinatesImg_4_id.top)){
-                    imageWithoutZoom();
-                    hoverFunction_absence_of_sensation();
-                }
-                //----------------------------------------------- Outside the image
-                if(cursorTop < Number(coordinatesImg_2_id.top)){
-                    imageWithoutZoom();
-                    hoverFunction_absence_of_sensation();
-                }
-                if(cursorBottom > Number(coordinatesImg_3_id.bottom)){
-                    imageWithoutZoom();
-                    hoverFunction_absence_of_sensation();
-                }             
-            }
             
-            if('<%- val_ON_OFF %>' == "1"){
-                function Refresh(){
-                    location.reload();
-                }
-                setInterval(Refresh, 200);
-            }
         
         </script>
     </body>
