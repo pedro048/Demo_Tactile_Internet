@@ -16,11 +16,6 @@ const conn1 = mongoose.createConnection(uriRead, {useNewUrlParser: true});
 
 const conn2 = mongoose.createConnection(uriWrite, {useNewUrlParser: true});
 
-/*
-const conn1 = mongoose.createConnection("mongodb+srv://pedroalves700:8dNIp4h6bNVMF6UY@cluster0.afo8cn1.mongodb.net/tactileSensationsDB", {useNewUrlParser: true});
-
-const conn2 = mongoose.createConnection("mongodb+srv://pedroalves700:8dNIp4h6bNVMF6UY@cluster0.afo8cn1.mongodb.net/tactileProjectDataDB", {useNewUrlParser: true});
-*/
 
 const tactileSensationsSchema = {
    id_tactile: String,
