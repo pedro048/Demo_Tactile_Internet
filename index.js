@@ -7,7 +7,6 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-
 const uriRead = process.env.MONGODB_URI_READ;
 
 const uriWrite = process.env.MONGODB_URI_WRITE;
@@ -15,7 +14,6 @@ const uriWrite = process.env.MONGODB_URI_WRITE;
 const conn1 = mongoose.createConnection(uriRead, {useNewUrlParser: true});
 
 const conn2 = mongoose.createConnection(uriWrite, {useNewUrlParser: true});
-
 
 const tactileSensationsSchema = {
    id_tactile: String,
@@ -191,13 +189,13 @@ const softness = new TactileSensation({
    d_low_speed_ms: 17
 });
 
-/*
+
 absence_of_sensation.save();
 coarse_roughness.save();
 fine_roughness.save();
 smoothness.save();
 softness.save();
-*/
+
 
 /*
 TactileSensation.findByIdAndRemove("63f129da82a3bea1e2691429", function(err){
@@ -298,25 +296,25 @@ function sendTactileSensation(vel, velMax, idTactile){
 
    */
 
-   HighPulseLowPulseMsData.findByIdAndUpdate("66b427edbaa0ce5782e956d0", { hp_ms: value_hp_high_speed_ms }, function(err){
+   HighPulseLowPulseMsData.findByIdAndUpdate("68e1783e009439d30f02085f", { hp_ms: value_hp_high_speed_ms }, function(err){
       if (err){
          console.log(err);
       }
    });
 
-   HighPulseLowPulseMsData.findByIdAndUpdate("66b427edbaa0ce5782e956d0", { lp_ms: value_lp_high_speed_ms }, function(err){
+   HighPulseLowPulseMsData.findByIdAndUpdate("68e1783e009439d30f02085f", { lp_ms: value_lp_high_speed_ms }, function(err){
       if (err){
          console.log(err);
       }
    });
    
-   HighPulseLowPulseMsData.findByIdAndUpdate("66b427edbaa0ce5782e956d0", { t: t_ms }, function(err){
+   HighPulseLowPulseMsData.findByIdAndUpdate("68e1783e009439d30f02085f", { t: t_ms }, function(err){
       if (err){
          console.log(err);
       }
    });
 
-   HighPulseLowPulseMsData.findByIdAndUpdate("66b427edbaa0ce5782e956d0", { d: duty_cycle }, function(err){
+   HighPulseLowPulseMsData.findByIdAndUpdate("68e1783e009439d30f02085f", { d: duty_cycle }, function(err){
       if (err){
          console.log(err);
       }
